@@ -28,7 +28,8 @@ namespace MessageAPI
             var password = Configuration["DBPassword"] ?? "Pa$$word2020";
 
             services.AddDbContext<MessageContext>(options =>
-                options.UseSqlServer($"Server={server},{port};Initial Catalog={databaseName};User ID={user};Password={password}");
+                options.UseSqlServer($"Server={server},{port};Initial Catalog={databaseName};User ID={user};Password={password}")
+            );
 
             services.AddControllers();
         }

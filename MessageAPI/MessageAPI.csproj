@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="microsoft.entityframeworkcore" Version="3.1.7" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="3.1.7" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
   </ItemGroup>
 

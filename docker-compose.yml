@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+    sqlserver:
+        image: mcr.microsoft.com/mssql/server:2017-latest
+        environment:
+            ACCEPT_EULA: "Y"
+            SA_PASSWORD: 'Password2020@' 
+        ports:
+            - 1433:1433
+    messageapi:
+        image: ${DOCKER_REGISTRY-}messageapi
+        environment: 
+            DBServer: 'sqlserver'
+            DBUser: 'SA'
+            DBPassword: 'Password2020@'
+        build:
+            context: .
+            dockerfile: MessageAPI/Dockerfile
+        depends_on:
+            - sqlserver

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace MessageAPI
 {
@@ -19,13 +20,13 @@ namespace MessageAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var server = Configuration["DBServer"] ?? "localhost";
+            var server = Configuration["DBServer"];
             var port = Configuration["DBPort"] ?? "1433";
             var databaseName = "message";
 
             // TODO remove credentials from here
-            var user = Configuration["DBUser"] ?? "SA";
-            var password = Configuration["DBPassword"] ?? "Pa$$word2020";
+            var user = Configuration["DBUser"];
+            var password = Configuration["DBPassword"];
 
             services.AddDbContext<MessageContext>(options =>
                 options.UseSqlServer($"Server={server},{port};Initial Catalog={databaseName};User ID={user};Password={password}")

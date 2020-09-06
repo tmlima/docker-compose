@@ -26,9 +26,11 @@ namespace MessageAPI.Models
             {
                 System.Console.WriteLine("Adding data...");
                 context.Messages.AddRange(
-                    new Message() { Id = 1, Text = "a" },
-                    new Message() { Id = 2, Text = "b" },
-                    new Message() { Id = 3, Text = "c" });
+                    new Message() { Text = "a" },
+                    new Message() { Text = "b" },
+                    new Message() { Text = "c" }
+                );
+                context.SaveChanges();
             }
             else
             {

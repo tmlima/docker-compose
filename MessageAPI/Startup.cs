@@ -51,6 +51,8 @@ namespace MessageAPI
             {
                 endpoints.MapControllers();
             });
+
+            PrepareDB.PreparePopulation(app);
         }
     }
 }

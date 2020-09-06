@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MessageAPI.Model;
+using MessageAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Collections.Generic;
 
 namespace MessageAPI.Controllers
 {
@@ -12,6 +9,19 @@ namespace MessageAPI.Controllers
     [ApiController]
     public class MessageController : ControllerBase
     {
+        private readonly MessageContext _context;
+
+        public MessageController(MessageContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Message>> GetMessages()
+        {
+            return _context.Messages;
+        }
+        
         // GET: api/<MessageController>
         [HttpGet]
         public IEnumerable<string> Get()

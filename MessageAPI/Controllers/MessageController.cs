@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MessageAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class MessageController : ControllerBase
     {
@@ -17,41 +17,9 @@ namespace MessageAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Message>> GetMessages()
+        public ActionResult<IEnumerable<Message>> Get()
         {
             return _context.Messages;
-        }
-        
-        // GET: api/<MessageController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<MessageController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<MessageController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<MessageController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<MessageController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
